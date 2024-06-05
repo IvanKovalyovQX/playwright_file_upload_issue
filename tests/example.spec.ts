@@ -14,11 +14,8 @@ test('has title', async ({ page,browser }) => {
   await newPage.keyboard.press('Enter');
   await newPage.waitForTimeout(3000);
   await newPage.getByRole("button",{ name: 'Check In'}).click();
-  
-  await newPage.waitForTimeout(3000);
-  await page.getByText('Patient').hover({ force: true });
+
+  await page.locator('[data-test-id="patient-queue-details-icon"]').click()
   await page.getByRole("button",{ name: 'Start Call'}).click();
-  await page.pause();
-  await newPage.pause();
 });
 
